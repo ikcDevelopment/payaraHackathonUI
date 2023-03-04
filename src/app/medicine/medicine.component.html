@@ -1,1 +1,88 @@
-<p>medicine works!</p>
+<div class="row"  style="margin-left: 25px; margin-right: 25px;margin-top: 25px;">
+  <div class="col-6">
+    <div class="card border-primary">
+        <div class="card-header">{{ treeTitle }}</div>
+        <div class="card-body" style="height: 450px; overflow: hidden;">
+            <tree-root [nodes]="nodes" [options]="dataTreeOptions">
+            <ng-template #treeNodeTemplate let-node let-index="index">
+                <i class="{{ treeIconClass }}">{{ mySpace }}</i>
+                <span>{{ node.name }}</span>
+            </ng-template>
+            </tree-root>
+        </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card border-primary">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">Medicine in edition</div>
+                <div class="col-6"></div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ subtitle }}</h5>
+            <div class="btn-actions">
+                <button id="btnSave" class="btn btn-success btn-round" (click)="upLoadData()"><i class="icofont icofont-save"></i> Adicionar</button>
+
+                <button id="btnDelete" [ngClass]="{'hidden': deleteBtnIsHidden}" class="btn btn-danger btn-round hidden alert-success-cancel" (click)="deleteData()"><i class="icofont icofont-ui-delete"></i> Borrar</button>
+
+                <button id="btnNew"  [ngClass]="{'hidden': newBtnIsHidden}" class="btn btn-primary btn-round hidden alert-success-cancel" (click)="resetPatient()"><i class="icofont icofont-star-alt-1"></i> Nuevo</button>
+            </div>
+
+            <form [formGroup]="medicineForm" >
+              <div class="form-group row">
+                <div class="col-6">
+                  <input
+                      type="text"
+                      class="form-control"
+                      #medicineKey
+                      formControlName="medicineKey"
+                      placeholder="Medicine key"
+                      title="Medicine key"
+                      >
+                  </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-12">
+                  <input
+                      type="text"
+                      class="form-control"
+                      #medicineName
+                      formControlName="medicineName"
+                      placeholder="Medicine name"
+                      title="Medicine name"
+                      >
+                    </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-12">
+                  <input
+                      type="text"
+                      class="form-control"
+                      #medicineSupplier
+                      formControlName="medicineSupplier"
+                      placeholder="medicine Supplier"
+                      title="medicine Supplier"
+                      >
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <div class="col-4">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #medicinePrice
+                        formControlName="medicinePrice"
+                        placeholder="Medicine billing price"
+                        title="Medicine billing price"
+                        style="text-align: right;"
+                        >
+                    </div>
+              </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
