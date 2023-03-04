@@ -10,6 +10,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TreeModule } from '@circlon/angular-tree-component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TreeModule } from '@circlon/angular-tree-component';
     MedicineComponent,
     PatientComponent,
     MedicalRecordComponent,
-    NavigationComponent
+    NavigationComponent,
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

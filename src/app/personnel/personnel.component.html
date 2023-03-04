@@ -1,1 +1,147 @@
-<p>personnel works!</p>
+<div class="row" style="margin-left: 25px; margin-right: 25px;margin-top: 25px;">
+  <div class="col-6">
+    <div class="card border-primary">
+        <div class="card-header">{{ treeTitle }}</div>
+        <div class="card-body" style="height: 450px; overflow: hidden;">
+            <tree-root [nodes]="nodes" [options]="dataTreeOptions">
+            <ng-template #treeNodeTemplate let-node let-index="index">
+                <i class="{{ treeIconClass }}">{{ mySpace }}</i>
+                <span>{{ node.name }}</span>
+            </ng-template>
+            </tree-root>
+        </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card border-primary">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">Employee in edition</div>
+                <div class="col-6"></div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ subtitle }}</h5>
+            <div class="btn-actions">
+                <button id="btnSave" class="btn btn-success btn-round" (click)="upLoadData()"><i class="icofont icofont-save"></i> Adicionar</button>
+
+                <button id="btnDelete" [ngClass]="{'hidden': deleteBtnIsHidden}" class="btn btn-danger btn-round hidden alert-success-cancel" (click)="deleteData()"><i class="icofont icofont-ui-delete"></i> Borrar</button>
+
+                <button id="btnNew"  [ngClass]="{'hidden': newBtnIsHidden}" class="btn btn-primary btn-round hidden alert-success-cancel" (click)="resetPatient()"><i class="icofont icofont-star-alt-1"></i> Nuevo</button>
+            </div>
+            <form [formGroup]="employeeForm" >
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #fiscalId
+                        formControlName="fiscalId"
+                        placeholder="Fiscal id"
+                        title="Fiscal id"
+                        >
+                </div>
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #firstName
+                        formControlName="firstName"
+                        placeholder="First name"
+                        title="First name"
+                        >
+                </div>
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #lastName
+                        formControlName="lastName"
+                        placeholder="Last name"
+                        title="Last name"
+                        >
+                </div>
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #personalId
+                        formControlName="personalId"
+                        placeholder="Personal id"
+                        title="Personal id"
+                        >
+                </div>
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #smartPhone
+                        formControlName="smartPhone"
+                        placeholder="Smart phone"
+                        title="Smart phone"
+                        >
+                </div>
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #homePhone
+                        formControlName="homePhone"
+                        placeholder="Home phone"
+                        title="Home phone"
+                        >
+                </div>
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #officePhone
+                        formControlName="officePhone"
+                        placeholder="Office phone"
+                        title="Office phone"
+                        >
+                </div>
+                <div class="form-group row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        #email
+                        formControlName="email"
+                        placeholder="email"
+                        title="emai"
+                        >
+                </div>
+                <div class="form-group row">
+                    <label for="typeOfMember">Type of member</label>
+                  <select
+                      name="typeOfMember"
+                      #typeOfMember
+                      formControlName="typeOfMember"
+                      class="form-control form-select"
+                      title="type Of Member"
+                      >
+                      <option *ngFor="let fin of typeOfMembers" value="{{fin.name}}">{{fin.description}}</option>
+                  </select>
+                </div>
+                <div class="form-group row">
+                    <label for="speciality">Speciality</label>
+                  <select
+                      name="speciality"
+                      #speciality
+                      formControlName="speciality"
+                      class="form-control form-select"
+                      title="speciality"
+                      >
+                      <option *ngFor="let fin of speciallyties" value="{{fin.name}}">{{fin.description}}</option>
+                </select>
+                </div>
+
+            </form>
+        </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
