@@ -10,7 +10,7 @@ export class MedicineEndpointsService {
 
   constructor(private mainHostService: MainHostService) { }
 
-  getAccountingGlobalEndPoint(route:number): Endpoint{
+  getEndPoint(route:number): Endpoint{
     const mainEndPoint = this.mainHostService.ikcRestMs + this.resourcePath;
         let endPoint: Endpoint = {endPoint:'', apiKey:'', method:''};
 

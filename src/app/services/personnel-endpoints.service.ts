@@ -10,12 +10,12 @@ export class PersonnelEndpointsService {
 
   constructor(private mainHostService: MainHostService) { }
 
-  getAccountingGlobalEndPoint(route:number): Endpoint{
+  getEndPoint(route:number): Endpoint{
     const mainEndPoint = this.mainHostService.ikcRestMs + this.resourcePath;
         let endPoint: Endpoint = {endPoint:'', apiKey:'', method:''};
 
         switch(route) {
-          case 0:  // deletePatient
+          case 0:  // deleteEmployee
           endPoint.endPoint = mainEndPoint + '/{fiscalId}/del';
           endPoint.apiKey = 's2Pm2@pXEkd4ZSAmhvYr9Im7V';
           endPoint.method = 'DELETE';
