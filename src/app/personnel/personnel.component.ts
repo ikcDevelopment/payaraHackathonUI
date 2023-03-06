@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ITreeOptions, KEYS } from '@circlon/angular-tree-component';
 import { ToastrService } from 'ngx-toastr';
 import { PersonnelInterface } from '../models/personnel-interface';
+import { DataTreeNodeUi } from '../models/responses/data-tree-node-ui';
 import { SpecialityInterface } from '../models/speciality-interface';
 import { TypeOfMemberInterface } from '../models/type-of-member-interface';
 import { PersonnelService } from '../services/personnel.service';
@@ -19,7 +20,7 @@ export class PersonnelComponent implements OnInit {
     subtitle='';
     deleteBtnIsHidden: boolean = true;
     newBtnIsHidden: boolean = true;
-    nodes = [];
+    nodes:DataTreeNodeUi[] = [];
     treeIconClass: string = 'i-Library';
     mySpace:string = '  ';
     dataTreeOptions: ITreeOptions = {
@@ -71,6 +72,17 @@ export class PersonnelComponent implements OnInit {
     ngOnInit(): void {
         this.speciallyties = this.speciallyService.speciallytis;
         this.typeOfMembers = this.typeService.types;
+        this.peronnelService.getEmployeesTreeUi().subscribe(response=>{
+          if(response.success){
+            if(response.status == 'ok') {
+                this.nodes = response.nodes;
+            }else {
+                this.showMessage('error', response.message);
+            }
+        }else{
+            this.showMessage('error', response.message);
+        }
+        });
     }
 
     private showMessage(typeOfMessage: string, message:string){

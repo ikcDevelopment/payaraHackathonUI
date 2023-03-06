@@ -41,8 +41,8 @@ export class PersonnelEndpointsService {
           endPoint.method = 'PUT';
           break;
       case 5:  //
-          endPoint.endPoint = mainEndPoint + '';
-          endPoint.apiKey = '';
+          endPoint.endPoint = mainEndPoint + '/all-tree-ui';
+          endPoint.apiKey = 'zopipfduemlrYo9sp8B2j1bP9Lf';
           endPoint.method = 'GET';
           break;
       case 6:  //

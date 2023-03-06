@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Endpoint } from '../models/endpoint';
 import { PersonnelInterface } from '../models/personnel-interface';
+import { DataTreeUiResponse } from '../models/responses/data-tree-ui-response';
 import { EmployeeListResponse } from '../models/responses/employee-list-response';
 import { EmployeeResponse } from '../models/responses/employee-response';
 import { StandardResponse } from '../models/responses/standard-response';
@@ -67,6 +68,14 @@ export class PersonnelService {
         );
     }
 
+    getEmployeesTreeUi():Observable<DataTreeUiResponse>{
+        const endPoint: Endpoint = this.endPoints.getEndPoint(5);
+        const directEndPoint = endPoint.endPoint;
+
+        return this.http.get<DataTreeUiResponse>(
+            directEndPoint
+        );
+    }
 
 
 }
