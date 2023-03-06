@@ -6,6 +6,7 @@ import { PersonnelInterface } from '../models/personnel-interface';
 import { DataTreeNodeUi } from '../models/responses/data-tree-node-ui';
 import { SpecialityInterface } from '../models/speciality-interface';
 import { TypeOfMemberInterface } from '../models/type-of-member-interface';
+
 import { PersonnelService } from '../services/personnel.service';
 import { SpecialityServiceService } from '../services/speciality-service.service';
 import { TypeOfMemberService } from '../services/type-of-member.service';
@@ -72,6 +73,7 @@ export class PersonnelComponent implements OnInit {
     ngOnInit(): void {
         this.speciallyties = this.speciallyService.speciallytis;
         this.typeOfMembers = this.typeService.types;
+        console.log('init');
         this.peronnelService.getEmployeesTreeUi().subscribe(response=>{
           if(response.success){
             if(response.status == 'ok') {
@@ -83,6 +85,7 @@ export class PersonnelComponent implements OnInit {
             this.showMessage('error', response.message);
         }
         });
+        console.log('init-fin');
     }
 
     private showMessage(typeOfMessage: string, message:string){

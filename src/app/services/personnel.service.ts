@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Endpoint } from '../models/endpoint';
 import { PersonnelInterface } from '../models/personnel-interface';
@@ -17,7 +17,9 @@ export class PersonnelService {
     constructor(
         private http: HttpClient,
         private endPoints: PersonnelEndpointsService
-    ) { }
+    ) {
+      console.log('PersonnelService');
+    }
 
     insertEmployee(body: PersonnelInterface):Observable<StandardResponse>{
         const endPoint: Endpoint = this.endPoints.getEndPoint(3);

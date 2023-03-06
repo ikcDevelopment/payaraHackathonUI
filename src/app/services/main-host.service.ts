@@ -21,10 +21,10 @@ export class MainHostService {
       this.isOnlocalhost = origin.indexOf("localhost");
 
       if(this.isOnlocalhost > 0) {
-      this.ikcRestSite = this.ikcOrigin+"/cloudApps.app/"
+        this.ikcRestSite = this.ikcOrigin+"/hospital/"
       }
 
-      this.ikcRestSite = this.ikcRestSite + 'ikc-api/';
+      this.ikcRestSite = this.ikcRestSite + 'wyss-hospital/';
       this.ikcRestSite=this.ikcRestSite.replace(this.ikcPort, this.ikcRestPort);
       this.ikcRestMs=this.ikcOrigin.replace(this.ikcPort, this.ikcRestPort);
    }

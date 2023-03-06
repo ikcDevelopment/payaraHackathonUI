@@ -1,1 +1,78 @@
-<p>medical-record works!</p>
+<div class="row" style="margin-left: 25px; margin-right: 25px;margin-top: 25px;">
+    <div class="col-6">
+        <div class="card border-primary" >
+            <div class="card-header">{{ treeTitle }}</div>
+            <div class="card-body" style="height: 450px; overflow: hidden;">
+                <tree-root [nodes]="nodes" [options]="dataTreeOptions">
+                <ng-template #treeNodeTemplate let-node let-index="index">
+                    <i class="{{ treeIconClass }}">{{ mySpace }}</i>
+                    <span>{{ node.name }}</span>
+                </ng-template>
+                </tree-root>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card border-primary">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-6">Employee in edition</div>
+                    <div class="col-6"></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ subtitle }}</h5>
+                <div class="btn-actions">
+                    <button id="btnSave" class="btn btn-success btn-round" (click)="upLoadData()"><i class="icofont icofont-save"></i> Adicionar</button>
+
+                    <button id="btnDelete" [ngClass]="{'hidden': deleteBtnIsHidden}" class="btn btn-danger btn-round hidden alert-success-cancel" (click)="deleteData()"><i class="icofont icofont-ui-delete"></i> Borrar</button>
+
+                    <button id="btnNew"  [ngClass]="{'hidden': newBtnIsHidden}" class="btn btn-primary btn-round hidden alert-success-cancel" (click)="resetEmployee()"><i class="icofont icofont-star-alt-1"></i> Nuevo</button>
+                </div>
+                <form [formGroup]="recordForm" >
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <input
+                                type="text"
+                                class="form-control"
+                                #recordKey
+                                formControlName="recordKey"
+                                placeholder="Record key"
+                                title="Record key"
+                                >
+                        </div>
+                        <div class="col-6"></div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-6">
+                        <label for="patientId">Type of member</label>
+                        <select
+                            name="patientId"
+                            #patientId
+                            formControlName="patientId"
+                            class="form-control form-select"
+                            title="patient"
+                            >
+                            <option *ngFor="let fin of patients" value="{{fin.name}}">{{fin.description}}</option>
+                        </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="speciality">Speciality</label>
+                            <select
+                                name="doctorId"
+                                #doctorId
+                                formControlName="doctorId"
+                                class="form-control form-select"
+                                title="doctor"
+                                >
+                                <option *ngFor="let fin of doctors" value="{{fin.name}}">{{fin.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

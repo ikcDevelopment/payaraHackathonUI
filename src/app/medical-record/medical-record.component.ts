@@ -20,6 +20,8 @@ import { MedicineInterface } from '../models/medicine-interface';
   styleUrls: ['./medical-record.component.scss']
 })
 export class MedicalRecordComponent implements OnInit {
+    doctors:any[]=[];
+    patients:any[]=[];
 
     treeTitle='';
     subtitle='';
@@ -79,7 +81,7 @@ export class MedicalRecordComponent implements OnInit {
             doctorId: this.recordForm.controls.doctorId.value!,
             additionalComments: this.recordForm.controls.additionalComments.value!,
             appointments: []
-        }
+        };
 
         return body;
     }
@@ -101,7 +103,7 @@ export class MedicalRecordComponent implements OnInit {
           prescriptions: [],
           procedures: [],
           hospitalizations: []
-        }
+        };
 
         return body;
     }
@@ -116,7 +118,7 @@ export class MedicalRecordComponent implements OnInit {
           patientId: '',
           doctorId: '',
           analysis: ''
-        }
+        };
 
         return body;
     }
@@ -132,7 +134,7 @@ export class MedicalRecordComponent implements OnInit {
           doctorId: '',
           prescriptionDate: '',
           medicine: this.buildBodyMedicine()
-        }
+        };
 
         return body;
     }
@@ -177,7 +179,7 @@ export class MedicalRecordComponent implements OnInit {
           hospitalizationEnds: '',
           additionalComments: '',
           room: this.buildRoom()
-        }
+        };
 
         return body;
     }
@@ -227,6 +229,10 @@ export class MedicalRecordComponent implements OnInit {
             this.showMessage('error', response.message);
         }
     }
+
+    upLoadData(){}
+
+    deleteData(){}
 
     addMedicalRecord(){
         this.medicalRecordService.addMedicalRecord(this.buildBody()).subscribe(response => {
