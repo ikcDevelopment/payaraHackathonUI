@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TreeModule } from '@circlon/angular-tree-component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeComponent } from './home/home.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    TreeModule
+    TreeModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

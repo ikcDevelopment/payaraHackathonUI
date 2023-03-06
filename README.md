@@ -1,4 +1,4 @@
-# HospitalAdminUi
+# HospitalAdminUi is an Angular designed application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# **APPLICATION DESCRIPTION:**
+
+To handle any kind of personnel the hospital needs. For the sake of this app, I am targeting on medics or doctors, focusing on his or her speciality and type to distinguish him or her from the rest of people.
+
+**Patient** is the person who goes to the hospital to be treated medically.
+
+The process I am following is, the patient reach the hospital:
+
+* Ask to be register
+* or says I am a register patient
+
+**Next ask for an appointment**
+At this point the application:
+
+* Create a medical record
+* or pull the medical record from the microstream database
+
+With the medical record the application:
