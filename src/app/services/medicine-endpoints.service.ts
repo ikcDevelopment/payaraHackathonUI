@@ -6,7 +6,7 @@ import { MainHostService } from './main-host.service';
   providedIn: 'root'
 })
 export class MedicineEndpointsService {
-  private resourcePath = '/';
+  private resourcePath = '/medicines';
 
   constructor(private mainHostService: MainHostService) { }
 
@@ -15,17 +15,17 @@ export class MedicineEndpointsService {
         let endPoint: Endpoint = {endPoint:'', apiKey:'', method:''};
 
         switch(route) {
-            case 0:  // getAccountingTransactionsDocumentsType
-                endPoint.endPoint = mainEndPoint + '';
-                endPoint.apiKey = '';
+            case 0:  // getMedicine
+                endPoint.endPoint = mainEndPoint + '/{medicineKey}';
+                endPoint.apiKey = 'vnN53cpUUUQdvrp7JmBjskj0F';
                 endPoint.method = 'GET';
                 break;
-            case 1:  // getAccountCodesUsedByFiscalIdentificationNumber
-                endPoint.endPoint = mainEndPoint + '';
-                endPoint.apiKey = '';
+            case 1:  // getMedicines
+                endPoint.endPoint = mainEndPoint + '/all';
+                endPoint.apiKey = '4Bhh4ehitS9ngqZcrFq95tq5R';
                 endPoint.method = 'GET';
                 break;
-            case 2:  // getFiscalIdentificationNumbersInAccounting
+            case 2:  //
                 endPoint.endPoint = mainEndPoint + '';
                 endPoint.apiKey = '';
                 endPoint.method = 'GET';
